@@ -9,9 +9,7 @@ export default class ApiService {
 
     fetchImages() {
         const url = `${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchImages}&page=${this.page}&per_page=15&key=${API_KEY}`
-        return fetch(url)
-            .then(respose => respose.json())
-            .then(this.page++)
+        return fetch(url).then(respose => respose.json())
     }
 
     resetPage() {

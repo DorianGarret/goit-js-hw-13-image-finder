@@ -3,9 +3,31 @@
 }
 
 .container-padding {
-    padding-top: 5rem;
+    padding-top: 3rem;
 }
 
 .search-form {
     max-width: 20.5rem;
+}
+
+.list-group-item {
+    border: none;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-gap: 1.5rem;
+}
+
+.card li {
+    height: 450px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 12.5rem;
+    object-fit: cover;
 }
