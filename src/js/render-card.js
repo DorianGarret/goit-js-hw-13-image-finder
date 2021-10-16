@@ -15,13 +15,17 @@ loadMoreBtn.refs.button.addEventListener('click', fetchHits)
 
 function onSearch(event) {
     event.preventDefault()
+    const value = event.currentTarget.elements.query.value
 
-    API.query = event.currentTarget.elements.query.value
+    if (value.trim() === '') return
+
+    API.query = value.trim()
 
     loadMoreBtn.show()
 
     clearImagesContainer()
     fetchHits()
+    event.currentTarget.reset()
 }
 
 async function fetchHits() {
@@ -35,7 +39,7 @@ async function fetchHits() {
             loadMoreBtn.enable()
             loadMoreBtn.refs.button.scrollIntoView({
                 behavior: 'smooth',
-                block: 'start',
+                block: 'end',
             })
         }, 200)
     } catch (error) {
