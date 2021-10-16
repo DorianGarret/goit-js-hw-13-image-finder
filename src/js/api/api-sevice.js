@@ -1,7 +1,9 @@
 const API_KEY = '23790821-6777a11e2db191613ff9bf1d2'
-const BASE_URL = 'https://pixabay.com/api/'
 
 const queryString = require('query-string')
+const axios = require('axios').default
+
+axios.defaults.baseURL = 'https://pixabay.com/api/?'
 export default class ApiService {
     constructor() {
         this.searchQuery = ''
@@ -18,10 +20,11 @@ export default class ApiService {
             per_page: 12,
         })
 
-        const url = `${BASE_URL}?${searchParams}`
-        const response = await fetch(url)
-        const { hits } = await response.json()
+        const response = await axios.get(`${searchParams}`)
+        const { hits } = response.data
+
         this.nextPage()
+
         return hits
     }
 
