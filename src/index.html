@@ -34,8 +34,22 @@
             </form>
         </div>
 
-        <div class="container-xxl container-padding">
+        <div class="container-xxl container-padding d-flex flex-column">
             <ul class="list-group js-card-container grid-container"></ul>
+
+            <button
+                type="button"
+                class="btn mt-4 mx-auto btn-primary button"
+                style="max-width: 10rem"
+                data-action="load-more"
+            >
+                <span class="label">Show more</span>
+                <span
+                    class="spinner-border spinner-border-sm spinner is-hidden"
+                    role="status"
+                    aria-hidden="true"
+                ></span>
+            </button>
         </div>
         <script src="./index.js"></script>
     </body>

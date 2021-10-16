@@ -29,3 +29,11 @@
 .card img {
     object-fit: cover;
 }
+
+.button.is-hidden {
+    display: none;
+}
+
+.button > .spinner.is-hidden {
+    display: none;
+}
