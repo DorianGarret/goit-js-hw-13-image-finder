@@ -20,12 +20,10 @@ export default class ApiService {
             per_page: 12,
         })
 
-        const response = await axios.get(`${searchParams}`)
-        const { hits } = response.data
-
         this.nextPage()
 
-        return hits
+        const response = await axios.get(`${searchParams}`)
+        return response.data.hits
     }
 
     nextPage() {
