@@ -24,12 +24,23 @@ function onSearch(event) {
     fetchHits()
 }
 
-function fetchHits() {
+async function fetchHits() {
     loadMoreBtn.disable()
-    API.fetchImages().then(images => {
-        appendImagesMarkup(images)
-        loadMoreBtn.enable()
-    })
+
+    const featchImages = await API.fetchImages()
+    try {
+        //просто для реализации долгой загрузки
+        setTimeout(function () {
+            appendImagesMarkup(featchImages)
+            loadMoreBtn.enable()
+            loadMoreBtn.refs.button.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            })
+        }, 200)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 function appendImagesMarkup(images) {
@@ -38,8 +49,4 @@ function appendImagesMarkup(images) {
 
 function clearImagesContainer() {
     refs.imagesContainer.innerHTML = ''
-}
-
-function onFetchError() {
-    alert('ERROR')
 }
