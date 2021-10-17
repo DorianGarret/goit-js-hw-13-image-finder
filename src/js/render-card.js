@@ -37,9 +37,10 @@ async function fetchHits() {
         setTimeout(function () {
             appendImagesMarkup(featchImages)
             loadMoreBtn.enable()
-            loadMoreBtn.refs.button.scrollIntoView({
+
+            window.scrollBy({
+                top: 100,
                 behavior: 'smooth',
-                block: 'end',
             })
         }, 200)
     } catch (error) {
