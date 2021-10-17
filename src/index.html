@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     </head>
     <body>
-        <div class="container-xxl container-padding">
+        <div class="container-xxl">
             <form
                 class="
                     search-form
@@ -15,6 +15,7 @@
                     justify-content-center
                     align-items-center
                     mx-auto
+                    pt-5
                     js-search-form
                 "
                 id="search-form"
@@ -35,12 +36,12 @@
             </form>
         </div>
 
-        <div class="container-xxl container-padding d-flex flex-column">
-            <ul class="list-group js-card-container grid-container"></ul>
+        <div class="container-xxl d-flex flex-column">
+            <ul class="list-group js-card-container grid-container pt-3 pb-3"></ul>
 
             <button
                 type="button"
-                class="btn mt-4 mx-auto btn-primary button"
+                class="btn mx-auto btn-primary button"
                 style="max-width: 10rem"
                 data-action="load-more"
             >

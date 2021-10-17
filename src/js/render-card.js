@@ -21,26 +21,31 @@ function onSearch(event) {
 
     API.query = value.trim()
 
-    loadMoreBtn.show()
-
     clearImagesContainer()
     fetchHits()
+
     event.currentTarget.reset()
 }
 
 async function fetchHits() {
+    const featchImages = await API.fetchImages()
+
+    if (!featchImages.length) {
+        loadMoreBtn.hide()
+        return
+    }
+    loadMoreBtn.show()
     loadMoreBtn.disable()
 
-    const featchImages = await API.fetchImages()
     try {
         //просто для реализации долгой загрузки
         setTimeout(function () {
             appendImagesMarkup(featchImages)
             loadMoreBtn.enable()
 
-            window.scrollBy({
-                top: 100,
+            loadMoreBtn.refs.button.scrollIntoView({
                 behavior: 'smooth',
+                block: 'end',
             })
         }, 200)
     } catch (error) {
